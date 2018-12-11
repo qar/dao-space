@@ -24,3 +24,6 @@ public/upload/*
 *.sublime-project
 *.sublime-workspace
 *.swp
+
+# ingore dev data storage directory
+dev_data_dir
