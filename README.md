@@ -8,6 +8,17 @@
 #### OAuth 环境配置
 [https://developer.atlassian.com/server/jira/platform/oauth/](https://developer.atlassian.com/server/jira/platform/oauth/)
 
+
+## 启动开发环境
+
+1. 先通过 docker-compose 启动依赖环境 (MongoDB, Redis): `docker-compose up`。
+2. 在本地运行应用：`npm run start`
+
+
+## 模拟生产环境
+
+通过 `make build` 将应用打包成镜像，然后通过 `docker-compose -f docker-compose.staging.yaml up` 运行镜像。
+
 ----------
 Nodeclub
 =

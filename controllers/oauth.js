@@ -3,16 +3,17 @@ const fs = require('fs');
 const crypto = require('crypto');
 const urlParser = require('url');
 const  authMiddleWare = require('../middlewares/auth');
-
-const BASE_URL = 'http://localhost:3000';
-const OAUTH_BASE_URL = 'http://jira.daocloud.io';
-const JIRA_SITE_URL = 'http://jira.daocloud.io';
-const OAUTH_CONSUMER_KEY = 'daospace';
-const APP_SESSION_ID = 'daospace.s';
-const APP_COOKIE_ID = 'daospace.k';
+const config = require(`${__base}/config`);
 const UserProxy = require(`${__base}/proxy`).User;
-var Models         = require('../models');
-var User = Models.User;
+const Models = require('../models');
+const  User = Models.User;
+
+const BASE_URL = config.base_url;
+const OAUTH_BASE_URL = config.oauth_base_url;
+const JIRA_SITE_URL = config.jira_site_url;
+const OAUTH_CONSUMER_KEY = config.oauth_consumer_key;
+const APP_SESSION_ID = config.app_session_id;
+const APP_COOKIE_ID = config.app_cookie_id;
 
 function jiraAuth(req, res) {
   const oAuthConfig = [

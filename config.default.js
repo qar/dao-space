@@ -134,6 +134,15 @@ var config = {
   create_reply_per_day: 1000, // 每个用户一天可以发的评论数
   create_user_per_ip: 1000,
   visit_per_day: 1000, // 每个 ip 每天能访问的次数
+
+
+  // JIRA OAuth
+  base_url: 'http://localhost:3000',
+  oauth_base_url: 'http://jira.daocloud.io',
+  jira_site_url: 'http://jira.daocloud.io',
+  oauth_consumer_key: 'daospace',
+  app_session_id: 'daospace.s',
+  app_cookie_id: 'daospace.k',
 };
 
 if (process.env.NODE_ENV === 'test') {

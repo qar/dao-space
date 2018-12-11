@@ -1,17 +1,5 @@
 version: '3'
 services:
-  dao-space:
-    image: 'daocloud.io/daocloud/dao-space:latest'
-    volumes:
-      - ./dev_data_dir/uploads:/public/uploads
-      - ./config.js:/data/config.js
-      - ./jira.pem:/data/jira.pem
-    ports:
-      - '11223:3000'
-    depends_on:
-      - 'mongo'
-      - 'redis'
-
   mongo:
     image: 'mongo:4.0.4'
     restart: always
