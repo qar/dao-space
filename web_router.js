@@ -9,6 +9,7 @@
  */
 
 var express = require('express');
+var authCtrl = require('./controllers/oauth');
 var sign = require('./controllers/sign');
 var site = require('./controllers/site');
 var user = require('./controllers/user');
@@ -116,6 +117,10 @@ router.get('/auth/github/callback',
   github.callback);
 router.get('/auth/github/new', github.new);
 router.post('/auth/github/create', limit.peripperday('create_user_per_ip', config.create_user_per_ip, {showJson: false}), github.create);
+
+// JIRA OAuth
+router.get('/jira-auth', authCtrl.jiraAuth);
+router.get('/jira-callback', authCtrl.jiraCallback);
 
 router.get('/search', search.index);
 

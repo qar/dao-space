@@ -35,7 +35,7 @@ var config = {
   cnzz_tracker_id: '',
 
   // mongodb 配置
-  db: 'mongodb://mongo:27017/node_club_dev',
+  db: 'mongodb://localhost:27017/node_club_dev',
 
   // redis 配置，默认是本地
   redis_host: 'redis',

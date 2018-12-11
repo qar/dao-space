@@ -27,3 +27,7 @@ public/upload/*
 
 # ingore dev data storage directory
 dev_data_dir
+*.pem
+*.pub
+*.pcks8
+*.cer
