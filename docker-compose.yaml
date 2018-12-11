@@ -1,0 +1,21 @@
+version: '3'
+services:
+  dao-space:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "11223:3000"
+    volumes:
+      - ./dev_data_dir:/public/uploads
+    depends_on:
+      - mongo
+      - redis
+
+  mongo:
+    image: mongo:4.0.4
+    restart: always
+
+  redis:
+    image: redis:4.0.9
+    restart: always

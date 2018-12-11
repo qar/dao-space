@@ -35,10 +35,10 @@ var config = {
   cnzz_tracker_id: '',
 
   // mongodb 配置
-  db: 'mongodb://127.0.0.1/node_club_dev',
+  db: 'mongodb://mongo:27017/node_club_dev',
 
   // redis 配置，默认是本地
-  redis_host: '127.0.0.1',
+  redis_host: 'redis',
   redis_port: 6379,
   redis_db: 0,
   redis_password: '',
@@ -137,7 +137,7 @@ var config = {
 };
 
 if (process.env.NODE_ENV === 'test') {
-  config.db = 'mongodb://127.0.0.1/node_club_test';
+  config.db = 'mongodb://mongo:27017/node_club_test';
 }
 
 module.exports = config;
