@@ -58,4 +58,7 @@ start: install build
 restart: install build
 	@NODE_ENV=production ./node_modules/.bin/pm2 restart "cnode"
 
-.PHONY: install test testfile cov test-cov build run start restart
+image:
+	docker build . -t daocloud.io/daocloud/dao-space:latest
+
+.PHONY: image install test testfile cov test-cov build run start restart
