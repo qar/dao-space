@@ -1,3 +1,14 @@
+# DaoSpace
+
+> DaoCloud 内网闲聊社区
+
+
+## 部署
+
+#### OAuth 环境配置
+[https://developer.atlassian.com/server/jira/platform/oauth/](https://developer.atlassian.com/server/jira/platform/oauth/)
+
+----------
 Nodeclub
 =
 
@@ -22,7 +33,6 @@ Nodeclub 是使用 **Node.js** 和 **MongoDB** 开发的社区系统，界面优
 
 ## 安装部署
 
-*不保证 Windows 系统的兼容性*
 
 线上跑的是 [Node.js](https://nodejs.org) v8.12.0，[MongoDB](https://www.mongodb.org) 是 v4.0.3，[Redis](http://redis.io) 是 v4.0.9。
 

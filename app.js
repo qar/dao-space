@@ -6,6 +6,9 @@
  * Module dependencies.
  */
 
+// So other modules can use absolute path
+global.__base = `${__dirname}/`;
+
 var config = require('./config');
 
 if (!config.debug && config.oneapm_key) {
