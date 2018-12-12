@@ -60,8 +60,6 @@ function jiraCallback(req, res) {
     req.param('oauth_verifier'),
     function(error, oauth_access_token, oauth_access_token_secret, results2) {
       if (error) {
-        console.log('error');
-        console.log(error);
         res.redirect('/');
       } else {
         // store the access token in the session
@@ -75,30 +73,13 @@ function jiraCallback(req, res) {
           function(err, data, result) {
             const userAuth = JSON.parse(data);
             if (!err) {
-              // const params = {
-              //   username: user.name,
-              //   email: user.emailAddress,
-              //   access_token: oauth_access_token,
-              //   access_token_secret: oauth_access_token_secret,
-              //   hash: session,
-              // };
-
-              // // In case user record exists
-              // const updates = {
-              //   username: user.name,
-              //   access_token: oauth_access_token,
-              //   access_token_secret: oauth_access_token_secret,
-              //   hash: session,
-              // };
-
-              console.log('DEBUG user auth ', userAuth);
               UserProxy.getUserByLoginName(userAuth.name, (err, user) => {
-                console.log('DEBUG 111. get login user', err, user);
                 if (!user) {
                   // UserProxy: newAndSave = function (name, loginname, pass, email, avatar_url, active, callback)
                   const avatarUrl = `${JIRA_SITE_URL}/secure/useravatar?ownerId=${userAuth.name}`;
                   const user = new User({
                     loginname: userAuth.name,
+                    name: userAuth.displayName,
                     pass: session,
                     email: userAuth.emailAddress,
                     avatar: avatarUrl,
@@ -116,6 +97,7 @@ function jiraCallback(req, res) {
                   });
                 } else {
                   user.hash = session;
+                  user.name = userAuth.displayName;
                   user.save((err, result) => {
                     if (!err) {
                       authMiddleWare.gen_session(user, res);

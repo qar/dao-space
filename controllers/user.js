@@ -125,9 +125,11 @@ exports.setting = function (req, res, next) {
     var location = validator.trim(req.body.location);
     var weibo = validator.trim(req.body.weibo);
     var signature = validator.trim(req.body.signature);
+    const name = validator.trim(req.body.name);
 
     User.getUserById(req.session.user._id, ep.done(function (user) {
       user.url = url;
+      user.name = name;
       user.location = location;
       user.signature = signature;
       user.weibo = weibo;

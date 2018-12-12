@@ -25,10 +25,20 @@
           <label class='control-label' for='name'>用户名</label>
 
           <div class='controls'>
-            <input class='input-xlarge readonly' id='name' name='name' size='30' type='text' readonly='true'
+            <input class='input-xlarge readonly' id='loginname' name='loginname' size='30' type='text' readonly='true'
                    value="<%= loginname %>"/>
           </div>
         </div>
+
+        <div class='control-group'>
+          <label class='control-label' for='name'>展示名</label>
+
+          <div class='controls'>
+            <input class='input-xlarge' id='name' name='name' size='30' type='text'
+                   value="<%= name %>"/>
+          </div>
+        </div>
+
         <div class='control-group'>
           <label class='control-label' for='email'>电子邮件</label>
 
